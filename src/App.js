@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   handleSelected = (zone) => {
-    console.log(zone.timeZone);
     this.setState({ selectedZone: zone });
   };
 }
