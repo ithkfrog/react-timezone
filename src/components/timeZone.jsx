@@ -22,13 +22,17 @@ class TimeZones extends Component {
             <tr key={tz.zoneName}>
               <td>{tz.countryName}</td>
               <td>{tz.zoneName}</td>
-              <td>{tz.gmtOffset}</td>
+              <td>{this.convertOffset(tz.gmtOffset)}</td>
               <td>{this.formatDate(tz.timestamp)}</td>
             </tr>
           ))}
         </tbody>
       </table>
     );
+  }
+
+  convertOffset = (t) => {
+    return t / 60 / 60;
   }
 
   formatDate = (ts) => {
