@@ -14,6 +14,7 @@ class TimeZones extends Component {
             <th>Time Zone</th>
             <th>Abbreviation &amp; Name</th>
             <th>Offset</th>
+            <th>Time</th>
           </tr>
         </thead>
         <tbody className="tr">
@@ -21,13 +22,20 @@ class TimeZones extends Component {
                       <tr key={tz.zoneName}>
                       <td>{tz.countryName}</td>
                       <td>{tz.zoneName}</td>
-                      <td>{tz.timestamp}</td>
+                      <td>{tz.gmtOffset}</td>
+                      <td>{this.formatDate(tz.timestamp)}</td>
                     </tr>
                 )}
 
         </tbody>
       </table>
     );
+  }
+
+  formatDate = (ts) => {
+      const d = new Date(ts);
+      const tf = new Intl.DateTimeFormat('en-AU', {hour: 'numeric', minute: 'numeric', second:'numeric'})
+      return tf.format(d);
   }
 }
 
