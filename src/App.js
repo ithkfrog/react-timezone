@@ -1,13 +1,27 @@
-import React from 'react';
-import TimeZones from './components/timeZone';
+import React, { Component } from "react";
+import SelectedTimezone from "./components/selectedTimezone";
+import TimeZones from "./components/timeZone";
+import { getZones } from "./services/mockTimezone";
 
-function App() {
-  return (
-    <div className="container">
-      <h1>Australia timezone</h1>
-      <TimeZones/>
-    </div>
-  );
+class App extends Component {
+  state = {
+    zones: getZones(),
+    selectedZone: null,
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <TimeZones zones={this.state.zones} onSelected={this.handleSelected} />
+        <SelectedTimezone selectedZone={this.state.selectedZone} />
+      </div>
+    );
+  }
+
+  handleSelected = (zone) => {
+    console.log(zone.timeZone);
+    this.setState({ selectedZone: zone });
+  };
 }
 
 export default App;
