@@ -1,3 +1,4 @@
+const mockAuDetail = {"status":"OK","message":"","countryCode":"AU","countryName":"Australia","zoneName":"Antarctica\/Macquarie","abbreviation":"MIST","gmtOffset":39600,"dst":"0","zoneStart":1270310400,"zoneEnd":null,"nextAbbreviation":null,"timestamp":1600279661,"formatted":"2020-09-16 18:07:41"};
 const mockAuList = [
   {
     countryCode: "AU",
@@ -94,4 +95,8 @@ const mockAuList = [
 
 export function getTimeZoneList() {
   return mockAuList;
+}
+
+export function getTimeZoneDetail(zoneName) {
+  return mockAuDetail;
 }

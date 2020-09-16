@@ -1,12 +1,16 @@
-import { timeZoneListUrl } from "../apiConfig.json";
+import { timeZoneListUrl, timeZoneDetailUrl } from "../apiConfig.json";
 import axios from "axios";
+//import { getTimeZoneList as mockList } from "./mockTimezone";
+//import { getTimeZoneDetail as mockDetail } from "./mockTimezone";
 
 export async function getTimeZoneList() {
   const { data: rst } = await axios.get(timeZoneListUrl);
-  if (rst) {
-    console.log(`Timezone list fetch completed lenght: ${rst.zones.length}`);
-  } else {
-    console.log("Timezone list not able to return!");
-  }
   return rst.zones;
+}
+
+export async function getTimeZoneDetail(zoneName) {
+  // replacing placeholder
+  const url = timeZoneDetailUrl.replace(":zoneName", zoneName);
+  const { data: rst } = await axios.get(url);
+  return rst;
 }

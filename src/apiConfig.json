@@ -1,3 +1,4 @@
 {
-    "timeZoneListUrl": "http://api.timezonedb.com/v2.1/list-time-zone?key=UAPDKABWG80B&format=json&country=AU"
+  "timeZoneListUrl": "http://api.timezonedb.com/v2.1/list-time-zone?key=UAPDKABWG80B&format=json&country=AU",
+  "timeZoneDetailUrl": "http://api.timezonedb.com/v2.1/get-time-zone?key=UAPDKABWG80B&format=json&by=zone&zone=:zoneName"
 }
