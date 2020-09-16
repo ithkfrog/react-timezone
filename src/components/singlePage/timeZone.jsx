@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import timeUtils from "../../tools/timeUtils";
 
 class TimeZones extends Component {
   render() {
@@ -23,7 +24,7 @@ class TimeZones extends Component {
                 >
                   <td>{tz.countryName}</td>
                   <td>{tz.zoneName}</td>
-                  <td>{this.convertOffset(tz.gmtOffset)}</td>
+                  <td>{timeUtils.convertOffset(tz.gmtOffset)}</td>
                 </tr>
               ))}
             </tbody>
@@ -32,20 +33,6 @@ class TimeZones extends Component {
       </React.Fragment>
     );
   }
-
-  convertOffset = (t) => {
-    return t / 60 / 60;
-  };
-
-  formatDate = (ts) => {
-    const d = new Date(ts);
-    const tf = new Intl.DateTimeFormat("en-AU", {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    });
-    return tf.format(d);
-  };
 }
 
 export default TimeZones;
